@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { from, interval, Observable, of, Subscription} from 'rxjs';
 import {UserService} from './user.service'
 import { map, filter } from 'rxjs/operators';
-import { Article } from './model/article';
+import { Article } from './model/Article';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
