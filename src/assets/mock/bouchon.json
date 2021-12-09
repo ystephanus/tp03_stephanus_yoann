@@ -1,0 +1,6 @@
+[
+    {"libelle": "amazon prime", "price" : 25},
+    {"libelle":"salto", "price": 40},
+    {"libelle": "netflix", "price": 9},
+    {"libelle": "disney+", "price": 4}  
+]

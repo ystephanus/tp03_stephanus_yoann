@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { of, Subscription, Observable} from 'rxjs';
-import { Article } from './dto/article';
+import { Observable} from 'rxjs';
+import { Article } from './model/article';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  constructor(private httpClient: HttpClient) {}
 
   public postClient(){
       return "create client"
@@ -21,12 +25,7 @@ export class UserService {
   }
   public getCatalogue() : Observable<Array<Article>>{
     
-    const flux =  [
-      {"libelle": "amazon prime", "price" : 25},
-      {"libelle":"salto", "price": 40},
-      {"libelle": "netflix", "price": 9},
-      {"libelle": "disney+", "price": 4},  
-    ]
-    return of(flux);
+    return this.httpClient
+      .get<any>(environment.baseUrl)  
   }
 }
