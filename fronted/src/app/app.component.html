@@ -1,0 +1,24 @@
+<h1>Bienvenue dans le TP3</h1>
+{{client}}
+
+{{myObservable | async}}
+{{myObservable2 | async}}
+<br/>
+<label>Recherche</label>
+<input [(ngModel)]="recherche" (ngModelChange)="valuechange($event)"/> 
+<br/>
+<br/>
+<table>
+  <thead>
+    <tr>
+      <th>Libellé</th>
+      <th>Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of catalogues | async">
+      <td>{{c.libelle}}</td>
+      <td>{{c.price}} euros</td>
+    </tr>
+  </tbody>
+  </table>
