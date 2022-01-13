@@ -1,0 +1,20 @@
+<p>Ajouter un nouveau produit : </p>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="first-name">Nom du produit: </label>
+    <input id="first-name" type="text" formControlName="productName">
+    <br/>
+    <label for="last-name">Pourcentage alcool en (%) </label>
+    <input id="last-name" type="text" formControlName="price">
+    <br/>
+    <button type="submit">Ajouter</button>
+
+    <p>Le panier ({{nbProduits$ | async}}) :</p>
+    <ul>
+        <li *ngFor="let p of produits$ | async">
+            {{p.name}} - {{p.alcool}}
+            <button (click)="onDelete(p)">Supprimer</button>
+        </li>
+    </ul>
+  </form>

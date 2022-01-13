@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
-import { Article } from './model/Article';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-
+import { Article } from './models/Article';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   constructor(private httpClient: HttpClient) {}
@@ -23,7 +23,7 @@ export class UserService {
   public postLogin(){
     return "login a user"
   }
-  public getCatalogue() : Observable<Array<Article>>{
+  public getCatalogue() : Observable<Article[]>{
     
     return this.httpClient
       .get<Article[]>(environment.baseUrl)  
