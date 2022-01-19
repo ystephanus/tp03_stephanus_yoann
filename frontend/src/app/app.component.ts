@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { from, interval, Observable, of, Subscription} from 'rxjs';
 import {UserService} from './user.service'
 import { map, filter } from 'rxjs/operators';
-import { Article } from './models/Article';
+import { Voiture } from 'shared/models/Voiture';
+import { Select, Store } from '@ngxs/store';
+import { PanierState } from 'shared/states/produit-state';
+import { AddProduit } from 'shared/actions/produit.action';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +16,7 @@ import { Article } from './models/Article';
 export class AppComponent implements OnInit{
   title = 'tp3';
   
-  constructor(private service : UserService) { }
+  constructor(private service : UserService, private Store: Store) { }
   
   myObservable = of('TODO')
   myObservable2 = from(['titi', 'toto', 'tutu'])
@@ -20,9 +25,10 @@ export class AppComponent implements OnInit{
   subscribe: Subscription; 
   subscribe2$ : Subscription
   valeur : number;
-  catalogues : Observable<Article[]>;
+  catalogues : Observable<Voiture[]>;
   recherche : string;
 
+  
   ngOnInit(): void{
     this.subscribe = 
       this.myObservable3
@@ -37,22 +43,27 @@ export class AppComponent implements OnInit{
   ngOnDestroy() : void{
     this.subscribe.unsubscribe()
   }
-  valuechange(event : any){
+
+  onAddToBasket(voiture : Voiture){
+    this.Store.dispatch(new AddProduit(voiture))
+  }
+
+  valuechange(event: any){
     if(Number(this.recherche)){
       this.catalogues = this.service.getCatalogue()
       .pipe(
         map(
-          articles => 
-              articles.filter(
-                article => article.price > Number(this.recherche))
+          voitures => 
+              voitures.filter(
+                v => v.prix > Number(this.recherche))
         ))
     }else{
       this.catalogues = this.service.getCatalogue()
       .pipe(
         map(
-          articles => 
-              articles.filter(
-                article => article.libelle.startsWith(this.recherche))
+          voitures => 
+              voitures.filter(
+                v => v.marque.startsWith(this.recherche))
         ))
     }
   }

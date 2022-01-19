@@ -11,27 +11,35 @@
 <table>
   <thead>
     <tr>
-      <th>Libellé</th>
+      <th>Marque</th>
+      <th>Modele</th>
       <th>Prix</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of catalogues | async">
-      <td>{{c.libelle}}</td>
-      <td>{{c.price}} euros</td>
+    <tr *ngFor="let v of catalogues | async">
+      <td>{{v.marque}}</td>
+      <td>{{v.modele}}</td>
+      <td>{{v.prix | number:'2.'}} euros</td>
+      <button (click)="onAddToBasket(v)">Ajouter</button>
     </tr>
   </tbody>
   </table>
-<hr/>
-
-  <ul>
-  <li><a [routerLink]="['/home']">Home</a></li>
-  <li><a [routerLink]="['/login']">Login</a></li>
-  <li><a [routerLink]="['/client/signin']">Signin</a></li>
-  <li><a [routerLink]="['/client/signup']">Signup</a></li>
-</ul>
-  
-<router-outlet></router-outlet>
-
-<hr/>
+<br/>
+<br/>
 <app-panier></app-panier>
+<!--
+  
+  <ul>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/login']">Login</a></li>
+    <li><a [routerLink]="['/client/signin']">Signin</a></li>
+    <li><a [routerLink]="['/client/signup']">Signup</a></li>
+  </ul>
+  
+    
+  <router-outlet></router-outlet>
+  <hr/>
+
+-->
+

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { Article } from './models/Article';
+import { Voiture } from 'shared/models/Voiture';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +23,9 @@ export class UserService {
   public postLogin(){
     return "login a user"
   }
-  public getCatalogue() : Observable<Article[]>{
+  public getCatalogue() : Observable<Voiture[]>{
     
     return this.httpClient
-      .get<Article[]>(environment.baseUrl)  
+      .get<Voiture[]>(environment.baseUrl)  
   }
 }

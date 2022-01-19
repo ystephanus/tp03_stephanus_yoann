@@ -1,6 +1,10 @@
 [
-    {"libelle": "amazon prime", "price" : 25.5},
-    {"libelle":"salto", "price": 40},
-    {"libelle": "netflix", "price": 9},
-    {"libelle": "disney+", "price": 4}  
+    {"marque": "Buggati", "modele": "veyron", "prix" : 2000000},
+    {"marque": "Buggati", "modele": "chiron","prix": 26000000},
+    {"marque": "Porsche", "modele":"911","prix": 113000},
+    {"marque": "Alipne", "modele": "A110","prix": 60000},
+    {"marque": "lamborghini", "modele": "Aventador", "prix":340000},
+    {"marque": "Ferrari", "modele": "458 Italia", "prix": 163000},
+    {"marque": "Mercedes", "modele": "AMG gt", "prix":120000},
+    {"marque": "Mclaren", "modele": "victor", "prix": 1685000}  
 ]

@@ -1,5 +1,5 @@
-import { Produit } from "../models/Produit";
+import { Voiture } from "../models/Voiture";
 
 export class ProduitStateModel {
-    produits: Produit[]
+    produits: Voiture[]
 }   

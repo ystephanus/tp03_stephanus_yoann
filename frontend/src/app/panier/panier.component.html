@@ -1,0 +1,8 @@
+<p>Le panier ({{nbProduits$ | async}}) :</p>
+<ul>
+    <li *ngFor="let p of produits$ | async">
+        {{p.marque}} - {{p.modele}} -  {{p.prix | number:'':'fr-Fr'}}
+        <button (click)="onDelete(p)">Supprimer</button>
+    </li>
+</ul>
+  
