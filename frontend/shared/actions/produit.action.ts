@@ -1,6 +1,6 @@
 import { Voiture } from "../models/Voiture";
 
-export class AddProduit{
+export class AddProduct{
     static readonly type='[Produit] Add';
 
     constructor(public payload:Voiture){}

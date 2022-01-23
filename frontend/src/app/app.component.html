@@ -21,7 +21,7 @@
       <td>{{v.marque}}</td>
       <td>{{v.modele}}</td>
       <td>{{v.prix | number:'2.'}} euros</td>
-      <button (click)="onAddToBasket(v)">Ajouter</button>
+      <button (click)="this.storePanier.addToBasket(v)">Ajouter</button>
     </tr>
   </tbody>
   </table>

@@ -3,9 +3,7 @@ import { from, interval, Observable, of, Subscription} from 'rxjs';
 import {UserService} from './user.service'
 import { map, filter } from 'rxjs/operators';
 import { Voiture } from 'shared/models/Voiture';
-import { Select, Store } from '@ngxs/store';
-import { PanierState } from 'shared/states/produit-state';
-import { AddProduit } from 'shared/actions/produit.action';
+import { StorePanier } from './store-panier.service';
 
 
 @Component({
@@ -16,7 +14,7 @@ import { AddProduit } from 'shared/actions/produit.action';
 export class AppComponent implements OnInit{
   title = 'tp3';
   
-  constructor(private service : UserService, private Store: Store) { }
+  constructor(private service : UserService, public storePanier : StorePanier) { }
   
   myObservable = of('TODO')
   myObservable2 = from(['titi', 'toto', 'tutu'])
@@ -44,9 +42,6 @@ export class AppComponent implements OnInit{
     this.subscribe.unsubscribe()
   }
 
-  onAddToBasket(voiture : Voiture){
-    this.Store.dispatch(new AddProduit(voiture))
-  }
 
   valuechange(event: any){
     if(Number(this.recherche)){

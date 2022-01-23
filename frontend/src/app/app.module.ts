@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { PanierComponent } from './panier/panier.component';
+import { PanierComponent } from './mod-panier/panier/panier.component';
 import { NgxsModule } from '@ngxs/store';
 import { PanierState } from 'shared/states/produit-state';
 

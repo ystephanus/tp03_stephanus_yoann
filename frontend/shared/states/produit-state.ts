@@ -1,5 +1,5 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { AddProduit, RemoveProduct } from "../actions/produit.action";
+import { AddProduct, RemoveProduct } from "../actions/produit.action";
 import { ProduitStateModel } from "./produit-state-model";
 
 @State<ProduitStateModel>({
@@ -20,10 +20,10 @@ export class PanierState {
         return state.produits.length;
     }
     
-    @Action(AddProduit)
+    @Action(AddProduct)
     add(
         {getState, patchState}:StateContext<ProduitStateModel>, 
-        {payload}: AddProduit
+        {payload}: AddProduct
     ){
 
         const state = getState()
