@@ -1,4 +1,3 @@
-<p>Le panier ({{nbProduits$ | async}}) :</p>
 <ul>
     <li *ngFor="let p of produits$ | async">
         {{p.marque}} - {{p.modele}} -  {{p.prix | number:'2.' }} euros

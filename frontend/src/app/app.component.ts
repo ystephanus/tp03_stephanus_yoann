@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { from, interval, Observable, of, Subscription} from 'rxjs';
 import {CatalogueService} from './catalogue.service'
 import { filter } from 'rxjs/operators';
-
+import { PanierState } from 'shared/states/produit-state';
+import { Select } from '@ngxs/store';
 
 
 @Component({
@@ -11,8 +12,10 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'tp3';
+  title = 'Bienvenue dans le TP3';
   
+  @Select(PanierState.countProducts) nbProduits$ : Observable<number> 
+
   constructor(private service : CatalogueService) { }
   
   myObservable = of('TODO')

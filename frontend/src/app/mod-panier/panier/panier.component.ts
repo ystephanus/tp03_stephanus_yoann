@@ -20,7 +20,6 @@ export class PanierComponent implements OnInit {
   }
   @Select(PanierState.getProduit) produits$ : Observable<Voiture[]>
 
-  @Select(PanierState.countProducts) nbProduits$ : Observable<number> 
 
 
 }

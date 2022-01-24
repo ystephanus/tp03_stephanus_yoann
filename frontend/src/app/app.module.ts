@@ -10,7 +10,9 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { HomeComponent } from './home/home.component';
 import { NgxsModule } from '@ngxs/store';
 import { PanierState } from 'shared/states/produit-state';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon'
+import {MatSliderModule} from '@angular/material/slider'
 
 const routes : Routes=[
   {path: 'catalogue', component: CatalogueComponent},
@@ -33,7 +35,10 @@ const routes : Routes=[
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    NgxsModule.forRoot([PanierState])
+    NgxsModule.forRoot([PanierState]),
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
