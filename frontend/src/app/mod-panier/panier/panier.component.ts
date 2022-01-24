@@ -4,7 +4,7 @@ import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { PanierState } from 'shared/states/produit-state';
 import {Voiture} from 'shared/models/Voiture'
-import {StorePanier} from 'src/app/store-panier.service'
+import {StoreService} from 'src/app/store.service'
 
 @Component({
   selector: 'app-panier',
@@ -13,7 +13,7 @@ import {StorePanier} from 'src/app/store-panier.service'
 })
 export class PanierComponent implements OnInit {
 
-  constructor(public storePanier : StorePanier){}
+  constructor(public storeService : StoreService){}
 
 
   ngOnInit(): void {

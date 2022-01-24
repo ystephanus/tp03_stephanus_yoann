@@ -1,45 +1,29 @@
 <h1>Bienvenue dans le TP3</h1>
-{{client}}
+
+<!--{{client}}
 
 {{myObservable | async}}
 {{myObservable2 | async}}
 <br/>
-<label>Recherche</label>
-<input [(ngModel)]="recherche" (ngModelChange)="valuechange($event)"/> 
-<br/>
-<br/>
-<table>
-  <thead>
-    <tr>
-      <th>Marque</th>
-      <th>Modele</th>
-      <th>Prix</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let v of catalogues | async">
-      <td>{{v.marque}}</td>
-      <td>{{v.modele}}</td>
-      <td>{{v.prix | number:'2.'}} euros</td>
-      <button (click)="this.storePanier.addToBasket(v)">Ajouter</button>
-    </tr>
-  </tbody>
-  </table>
-<br/>
-<br/>
-<app-panier></app-panier>
-<!--
-  
+-->
+<nav>
   <ul>
+    <li><a [routerLink]="['/catalogue']">Catalogue</a></li>
+    <li><a [routerLink]="['/panier']">Panier</a></li>
+    <li><a [routerLink]="['/client/signin']">Signin</a></li>
     <li><a [routerLink]="['/home']">Home</a></li>
     <li><a [routerLink]="['/login']">Login</a></li>
-    <li><a [routerLink]="['/client/signin']">Signin</a></li>
     <li><a [routerLink]="['/client/signup']">Signup</a></li>
   </ul>
-  
-    
-  <router-outlet></router-outlet>
-  <hr/>
+</nav>
 
--->
+<br/>
+
+
+<router-outlet></router-outlet>
+
+
+
+
+
 

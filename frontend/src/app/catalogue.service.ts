@@ -8,7 +8,7 @@ import { Voiture } from 'shared/models/Voiture';
   providedIn: 'root'
 })
 
-export class UserService {
+export class CatalogueService {
 
   constructor(private httpClient: HttpClient) {}
 

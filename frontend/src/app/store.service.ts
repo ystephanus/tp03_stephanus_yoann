@@ -7,17 +7,15 @@ import { Voiture } from 'shared/models/Voiture';
 @Injectable({
   providedIn: 'root'
 })
-export class StorePanier {
+export class StoreService {
 
-  constructor(private Store: Store) { }
+  constructor(private store: Store) { }
 
-  addToBasket(v: Voiture){
-    this.Store.dispatch(new AddProduct(v));
+  public addToBasket(v: Voiture){
+    return this.store.dispatch(new AddProduct(v));
   }
 
-  deleteToBasket(v: Voiture){
-    this.Store.dispatch(new RemoveProduct(v));
+  public deleteToBasket(v: Voiture){
+    return this.store.dispatch(new RemoveProduct(v));
   }
-
-
 }

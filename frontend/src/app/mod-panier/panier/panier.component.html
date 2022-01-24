@@ -2,7 +2,7 @@
 <ul>
     <li *ngFor="let p of produits$ | async">
         {{p.marque}} - {{p.modele}} -  {{p.prix | number:'2.' }} euros
-        <button (click)="this.storePanier.deleteToBasket(p)">Supprimer</button>
+        <button (click)="this.storeService.deleteToBasket(p)">Supprimer</button>
     </li>
 </ul>
   

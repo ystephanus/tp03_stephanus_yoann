@@ -4,25 +4,28 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { Routes, RouterModule } from '@angular/router';
+import { DetailProductComponent } from './detail-product/detail-product.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 import { HomeComponent } from './home/home.component';
-import { Routes, RouterModule, Router } from '@angular/router';
-import { PanierComponent } from './mod-panier/panier/panier.component';
 import { NgxsModule } from '@ngxs/store';
 import { PanierState } from 'shared/states/produit-state';
 
+
 const routes : Routes=[
-  { path: 'home', component:  HomeComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'client', 
-  loadChildren: () => import('./mod-client/client.module'). then(m => m.ClientModule) },
-  { path: '', redirectTo: '/home', pathMatch: 'full'}
+  {path: 'catalogue', component: CatalogueComponent},
+  { path: 'panier', loadChildren: () => import('./mod-panier/mod-panier.module').then(m => m.ModPanierModule)},
+  { path: 'client', loadChildren: () => import('./mod-client/mod-client.module'). then(m => m.ClientModule)},
+  { path: 'home', component: HomeComponent},
+  { path: '', redirectTo: '/catalogue', pathMatch: 'full'}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PanierComponent,    
+    DetailProductComponent,
+    CatalogueComponent,    
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ const routes : Routes=[
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    NgxsModule.forRoot([PanierState]),
+    NgxsModule.forRoot([PanierState])
   ],
   providers: [],
   bootstrap: [AppComponent]
