@@ -11,11 +11,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of catalogue | async">
+    <tr *ngFor="let c of catalogue| async; let index = index">
       <td>{{c.marque}}</td>
       <td>{{c.modele}}</td>
       <td>{{c.prix | number:'2.'}} euros</td>
       <button (click)="this.storeService.addToBasket(c)">Ajouter</button>
+      <a [routerLink]="['/catalogue', index]">detail</a>
     </tr>
   </tbody>
   </table>

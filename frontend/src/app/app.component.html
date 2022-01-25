@@ -4,10 +4,10 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Home</a>
-        <a class="nav-link" [routerLink]="['/catalogue']" >Catalogue</a>
+        <a class="nav-link" [routerLink]="['/catalogue']">Catalogue</a>
         <div>
           <span> <mat-icon [routerLink]="['/panier']">shopping_cart</mat-icon> </span>
-          <span class="badge bg-secondary">{{ nbProduits$ | async}}</span>
+          <span class="badge bg-secondary">{{ countProducts$ | async}}</span>
         </div>
       </div>
     </div>

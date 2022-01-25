@@ -28,4 +28,5 @@ export class CatalogueService {
     return this.httpClient
       .get<Voiture[]>(environment.baseUrl)  
   }
+
 }

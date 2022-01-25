@@ -8,6 +8,5 @@ export class AddProduct{
 
 export class RemoveProduct{
     static readonly type='Remove';
-
     constructor(public payload:Voiture){}
 }

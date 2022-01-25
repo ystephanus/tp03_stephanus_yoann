@@ -1,5 +1,6 @@
 export interface Voiture{
     marque: string,
     modele: string,
-    prix: number
+    prix: number,
+    detail: string,
 }

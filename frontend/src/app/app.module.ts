@@ -18,6 +18,7 @@ const routes : Routes=[
   {path: 'catalogue', component: CatalogueComponent},
   { path: 'panier', loadChildren: () => import('./mod-panier/mod-panier.module').then(m => m.ModPanierModule)},
   { path: 'client', loadChildren: () => import('./mod-client/mod-client.module'). then(m => m.ClientModule)},
+  {path: 'catalogue/:id', component: DetailProductComponent},
   { path: 'home', component: HomeComponent},
   { path: '', redirectTo: '/catalogue', pathMatch: 'full'}
 ]

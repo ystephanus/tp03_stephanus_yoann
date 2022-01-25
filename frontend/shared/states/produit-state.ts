@@ -1,4 +1,4 @@
-import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { Action, createSelector, Selector, State, StateContext } from "@ngxs/store";
 import { AddProduct, RemoveProduct } from "../actions/produit.action";
 import { ProduitStateModel } from "./produit-state-model";
 
@@ -19,6 +19,14 @@ export class PanierState {
     static countProducts(state: ProduitStateModel){
         return state.produits.length;
     }
+    @Selector()
+    static getOneProduct(index: number) {
+        return createSelector([PanierState], (state: ProduitStateModel) => {
+            console.log("ici")
+            console.log(state);
+            return state.produits[index]
+        }
+    )};
     
     @Action(AddProduct)
     add(

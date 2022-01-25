@@ -14,9 +14,9 @@ import { Select } from '@ngxs/store';
 export class AppComponent implements OnInit{
   title = 'Bienvenue dans le TP3';
   
-  @Select(PanierState.countProducts) nbProduits$ : Observable<number> 
+  @Select(PanierState.countProducts) countProducts$ : Observable<number>;
 
-  constructor(private service : CatalogueService) { }
+  constructor(private service : CatalogueService) {}
   
   myObservable = of('TODO')
   myObservable2 = from(['titi', 'toto', 'tutu'])
@@ -33,12 +33,10 @@ export class AppComponent implements OnInit{
         filter((v) => v%2 == 0)
       )
       .subscribe((value) => this.valeur = value)
-
   }
 
   ngOnDestroy() : void{
     this.subscribe.unsubscribe()
   }
 
-  client : any= this.service.getClient()
 }

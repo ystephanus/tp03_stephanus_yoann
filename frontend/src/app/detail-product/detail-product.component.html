@@ -1,1 +1,6 @@
-<p>detail-product works!</p>
+<p> Description de la voiture : </p>
+<p *ngFor="let v of voitureDetail$ | async ">
+    {{v.detail}}
+    <br/>
+    <button (click)="this.storeService.addToBasket(v)">Ajouter au panier</button>
+</p>
