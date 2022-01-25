@@ -2,7 +2,7 @@
 <input [(ngModel)]="recherche" (ngModelChange)="valuechange($event)"/> 
 <br/>
 <br/>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Marque</th>
@@ -15,8 +15,8 @@
       <td>{{c.marque}}</td>
       <td>{{c.modele}}</td>
       <td>{{c.prix | number:'2.'}} euros</td>
-      <button (click)="this.storeService.addToBasket(c)">Ajouter</button>
-      <a [routerLink]="['/catalogue', index]">detail</a>
+      <button (click)="this.storeService.addToBasket(c)" type="button" class="btn btn-primary">Ajouter</button>
+      <button [routerLink]="['/catalogue', index]" class="btn btn-info">Détail</button>
     </tr>
   </tbody>
   </table>
