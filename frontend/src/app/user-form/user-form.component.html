@@ -1,0 +1,73 @@
+<form [formGroup]="profileForm" (ngSubmit)="submitForm()">
+  <div class="row">
+    <div class="col mb-2">
+        <label class="form-label">Nom</label> 
+        <input type="text" formControlName="nom" name="nom" required class="form-control">
+      </div>
+    <div class="col mb-2">
+      <label class="form-label">Prenom</label> 
+      <input type="text" formControlName="prenom" class="form-control" required>
+    </div>
+    <div class="col mb-2">
+      <label class="form-label">Civilité</label> 
+      <input type="text" formControlName="civilite" class="form-control"> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <label class="form-label">Adresse</label> 
+      <input type="text" formControlName="adresse" required class="form-control"> 
+
+    </div>
+    <div class="col mb-2">
+      <label class="form-label">Code Postal</label> 
+      <input type="text" formControlName="cp"  pattern="[0-9]{5}" appErrors required class="form-control"> 
+    </div>
+    <div class="col mb-2">
+      <label class="form-label">Ville</label> 
+      <input type="text" formControlName="ville"  required class="form-control"> 
+    </div>
+    <div class="col mb-2">
+      <label class="form-label">Pays</label> 
+      <input type="text" formControlName="pays"  required class="form-control">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <label class="form-label">Telephone</label> 
+      <input type="tel" formControlName="tel"  pattern="[0-9]{10}" appErrors class="form-control"> 
+    </div>
+    <div class="col mb-2">
+      <label >Mél</label> 
+      <input type="email" email formControlName="mel" appErrors class="form-control"> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <label class="form-label">Nom utilisateur</label> 
+      <input type="text" formControlName="username" class="form-control">
+    </div>
+    <div class="col mb-2">
+      <label class="form-label">Mot de passe</label> 
+      <input type="password" formControlName="password" class="form-control">
+    </div>
+  </div>
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+</form>
+
+<app-user-recap 
+    *ngIf="isValid == true" 
+    [nom]="this.profileForm.get('nom')?.value"  
+    [prenom]="this.profileForm.get('prenom')?.value"
+    [adresse]="this.profileForm.get('adresse')?.value"
+    [cp]="this.profileForm.get('cp')?.value"
+    [ville]="this.profileForm.get('ville')?.value"
+    [pays]="this.profileForm.get('pays')?.value"
+    [mel]="this.profileForm.get('mel')?.value"
+    [tel]="this.profileForm.get('tel')?.value"
+    [civilite]="this.profileForm.get('civilite')?.value"
+    [username]="this.profileForm.get('username')?.value"
+    [password]="this.profileForm.get('password')?.value"  
+></app-user-recap>

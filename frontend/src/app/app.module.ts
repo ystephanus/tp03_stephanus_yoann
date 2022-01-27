@@ -12,7 +12,10 @@ import { NgxsModule } from '@ngxs/store';
 import { PanierState } from 'shared/states/produit-state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon'
-import {MatSliderModule} from '@angular/material/slider'
+import {MatSliderModule} from '@angular/material/slider';
+import { UserFormComponent } from './user-form/user-form.component';
+import { UserRecapComponent } from './user-recap/user-recap.component';
+import { ErrorsDirective } from './errors.directive'
 
 const routes : Routes=[
   {path: 'catalogue', component: CatalogueComponent},
@@ -20,6 +23,7 @@ const routes : Routes=[
   { path: 'client', loadChildren: () => import('./mod-client/mod-client.module'). then(m => m.ClientModule)},
   {path: 'catalogue/:id', component: DetailProductComponent},
   { path: 'home', component: HomeComponent},
+  {path: 'user', component: UserFormComponent},
   { path: '', redirectTo: '/catalogue', pathMatch: 'full'}
 ]
 
@@ -28,7 +32,10 @@ const routes : Routes=[
     AppComponent,
     LoginComponent,
     DetailProductComponent,
-    CatalogueComponent,    
+    CatalogueComponent,
+    UserFormComponent,
+    UserRecapComponent,
+    ErrorsDirective,    
   ],
   imports: [
     BrowserModule,

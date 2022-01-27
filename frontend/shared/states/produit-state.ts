@@ -49,7 +49,6 @@ export class PanierState {
         patchState({
             produits: state.produits.filter(produit => produit != payload)
         })
-    }
-        
+    }  
 
 }
