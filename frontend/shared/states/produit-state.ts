@@ -1,4 +1,5 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { Voiture } from "shared/models/Voiture";
 import { AddProduct, RemoveProduct } from "../actions/produit.action";
 import { ProduitStateModel } from "./produit-state-model";
 
@@ -26,9 +27,15 @@ export class PanierState {
     ){
 
         const state = getState()
-        patchState({
-            produits: [...state.produits, payload]
-        })
+        if(state.produits.find(elem => elem.modele == payload.modele)){
+            patchState({
+                produits: state.produits.map((v : Voiture) => v.modele !== payload.modele ? v : {...v, quatite : v.quatite +1})
+            })  
+        }else{
+            patchState({
+                produits: [...state.produits, {...payload, quatite: 1}]
+            })
+        }
     }
 
     @Action(RemoveProduct)
@@ -37,9 +44,15 @@ export class PanierState {
         {payload}: RemoveProduct
     ){
         const state = getState()
-        patchState({
-            produits: state.produits.filter(produit => produit != payload)
-        })
+        if(state.produits.find(elem => elem.modele == payload.modele).quatite > 1){
+            patchState({
+                produits: state.produits.map((v : Voiture) => v.modele !== payload.modele ? v : {...v, quatite : v.quatite -1})
+            })
+        }else{
+            patchState({
+                produits: state.produits.filter(produit => produit.modele !== payload.modele)
+            })
+        }
     }  
 
 

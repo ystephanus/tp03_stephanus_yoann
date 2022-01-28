@@ -3,4 +3,5 @@ export interface Voiture{
     modele: string,
     prix: number,
     detail: string,
+    quatite: number,
 }
