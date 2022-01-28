@@ -1,4 +1,3 @@
-import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { AddProduct, RemoveProduct } from "../actions/produit.action";
 import { ProduitStateModel } from "./produit-state-model";
@@ -10,7 +9,6 @@ import { ProduitStateModel } from "./produit-state-model";
     }
 })
 
-@Injectable()
 export class PanierState {
     @Selector()
     static getProduit(state: ProduitStateModel){

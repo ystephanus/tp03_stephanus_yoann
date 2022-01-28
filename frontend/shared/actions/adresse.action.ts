@@ -1,13 +1,11 @@
-import {Adresse} from 'shared/models/Adresse'
+import {Adresse} from '../models/Adresse'
 
-export namespace addrAction{
-    export class AddAddress{
-        static readonly type : '[Adress] add'
-        constructor(public payload: Adresse){}
-    }
-    
-    export class Remove{
-        static readonly type : '[Adress] remove address'
-        constructor(public payload: Adresse){}
-    }
+export class AddAddress{
+    static readonly type = 'add address'
+    constructor(public payload: Adresse){}
+}
+
+export class RemoveAddress{
+    static readonly type = 'remove address'
+    constructor(public payload: Adresse){}
 }

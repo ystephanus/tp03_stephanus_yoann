@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { addrAction } from 'shared/actions/adresse.action';
+import { AddAddress, RemoveAddress } from 'shared/actions/adresse.action';
 import { AddProduct, RemoveProduct } from 'shared/actions/produit.action';
 import { Adresse } from 'shared/models/Adresse';
 import { Voiture } from 'shared/models/Voiture';
@@ -22,12 +22,10 @@ export class StoreService {
   }
 
   public addAdress(a: Adresse){
-    console.log("test")
-    console.log(a)
-    return this.store.dispatch(new addrAction.AddAddress(a))
+    return this.store.dispatch(new AddAddress(a))
   }
 
   public deleteAdresse(a: Adresse){
-    return this.store.dispatch(new addrAction.Remove(a))
+    return this.store.dispatch(new RemoveAddress(a))
   }
 }

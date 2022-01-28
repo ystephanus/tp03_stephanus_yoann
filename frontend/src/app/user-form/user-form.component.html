@@ -38,6 +38,11 @@
       <label>Mes adresses : ({{countAdresses$ | async}})</label>
       <mat-icon (click)="openAdresse()">add</mat-icon>
     </div>
+    <ul>
+      <li *ngFor="let a of getAdresses$ | async">
+        {{a.adresse}} - {{a.ville}} - {{a.cp}} - {{a.pays}}
+      </li>
+    </ul>
 
     <hr/>
     <form [formGroup]="adressForm" class="me-4 ms-4" *ngIf="openAdress">

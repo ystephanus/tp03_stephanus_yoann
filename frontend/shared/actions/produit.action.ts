@@ -1,11 +1,11 @@
 import { Voiture } from "../models/Voiture";
 
 export class AddProduct{
-    static readonly type='[Product] add product';
+    static readonly type='add product';
     constructor(public payload:Voiture){}
 }
 
 export class RemoveProduct{
-    static readonly type='[Product] remove product';
+    static readonly type='remove product';
     constructor(public payload:Voiture){}
 }

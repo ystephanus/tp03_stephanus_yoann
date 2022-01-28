@@ -1,6 +1,5 @@
-import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext} from "@ngxs/store";
-import { addrAction } from "shared/actions/adresse.action";
+import { AddAddress, RemoveAddress } from "shared/actions/adresse.action";
 import { AdresseStateModel } from "./adresse-state-model";
 
 
@@ -11,10 +10,9 @@ import { AdresseStateModel } from "./adresse-state-model";
     }
 })
 
-@Injectable()
 export class AdresseState{
     @Selector()
-    static getAdress(state: AdresseStateModel){
+    static getAdresses(state: AdresseStateModel){
         return state.adresses;
     }
     @Selector()
@@ -22,10 +20,10 @@ export class AdresseState{
         return state.adresses.length;
     }
 
-    @Action(addrAction.AddAddress)
+    @Action(AddAddress)
     AddProduct(
         {getState, patchState}:StateContext<AdresseStateModel>, 
-        {payload}: addrAction.AddAddress
+        {payload}: AddAddress
     ){
 
         const state = getState()
@@ -34,15 +32,14 @@ export class AdresseState{
         })
     }
 
-    /*@Action(RemoveProduct)
+    @Action(RemoveAddress)
     DeleteProduct(
-        {getState, patchState}:StateContext<ProduitStateModel>,
-        {payload}: RemoveProduct
+        {getState, patchState}:StateContext<AdresseStateModel>,
+        {payload}: RemoveAddress
     ){
         const state = getState()
         patchState({
-            produits: state.produits.filter(produit => produit != payload)
+            adresses: state.adresses.filter(address => address != payload)
         })
-    } */ 
-
+    } 
 }

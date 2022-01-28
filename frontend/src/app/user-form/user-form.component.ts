@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { addrAction } from 'shared/actions/adresse.action';
+import { AddAddress } from 'shared/actions/adresse.action';
 import { Adresse } from 'shared/models/Adresse';
 import { AdresseState } from 'shared/states/adresse-state';
+import { StoreService } from '../store.service';
 
 
 
@@ -37,8 +38,10 @@ export class UserFormComponent implements OnInit {
   openAdress: boolean=false;
   
   @Select(AdresseState.countAdress) countAdresses$ : Observable<number>
+  @Select(AdresseState.getAdresses) getAdresses$ : Observable<Adresse[]>
 
-  constructor(private store : Store) { }
+
+  constructor(private storeService : StoreService) { }
 
   ngOnInit(): void {
   }
@@ -55,14 +58,13 @@ export class UserFormComponent implements OnInit {
   }
 
   onAdressSubmit():void{
-    var adress : Adresse = {
+    var address : Adresse = {
       cp:this.adressForm.get('cp').value, 
       adresse : this.adressForm.get('adresse').value, 
       ville : this.adressForm.get('ville').value, 
       pays: this.adressForm.get('pays').value
     }
-
-    this.store.dispatch(new addrAction.AddAddress(adress))
+    this.storeService.addAdress(address)
     this.openAdress = false;
   }
 }
