@@ -16,6 +16,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserRecapComponent } from './user-recap/user-recap.component';
 import { ErrorsDirective } from './errors.directive'
+import { AdresseState } from 'shared/states/adresse-state';
 
 const routes : Routes=[
   {path: 'catalogue', component: CatalogueComponent},
@@ -43,7 +44,7 @@ const routes : Routes=[
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    NgxsModule.forRoot([PanierState]),
+    NgxsModule.forRoot([PanierState, AdresseState]),
     BrowserAnimationsModule,
     MatIconModule,
     MatSliderModule,

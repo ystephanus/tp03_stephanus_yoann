@@ -15,25 +15,6 @@
   </div>
   <div class="row">
     <div class="col mb-2">
-      <label class="form-label">Adresse</label> 
-      <input type="text" formControlName="adresse" required class="form-control"> 
-
-    </div>
-    <div class="col mb-2">
-      <label class="form-label">Code Postal</label> 
-      <input type="text" formControlName="cp"  pattern="[0-9]{5}" appErrors required class="form-control"> 
-    </div>
-    <div class="col mb-2">
-      <label class="form-label">Ville</label> 
-      <input type="text" formControlName="ville"  required class="form-control"> 
-    </div>
-    <div class="col mb-2">
-      <label class="form-label">Pays</label> 
-      <input type="text" formControlName="pays"  required class="form-control">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col mb-2">
       <label class="form-label">Telephone</label> 
       <input type="tel" formControlName="tel"  pattern="[0-9]{10}" appErrors class="form-control"> 
     </div>
@@ -51,6 +32,39 @@
       <label class="form-label">Mot de passe</label> 
       <input type="password" formControlName="password" class="form-control">
     </div>
+  </div>
+  <div>
+    <div class="col">
+      <label>Mes adresses : ({{countAdresses$ | async}})</label>
+      <mat-icon (click)="openAdresse()">add</mat-icon>
+    </div>
+
+    <hr/>
+    <form [formGroup]="adressForm" class="me-4 ms-4" *ngIf="openAdress">
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Adresse</label> 
+          <input type="text" formControlName="adresse" class="form-control" required>
+        </div>
+        <div class="col">
+          <label class="form-label">Ville</label> 
+          <input type="text" formControlName="ville" class="form-control" required>
+        </div>
+        <div class="col">
+          <label class="form-label">Code postal</label> 
+          <input type="number" pattern="[0-9]{5}"formControlName="cp" class="form-control" required>
+        </div>
+        <div class="col">
+          <label class="form-label">pays</label> 
+          <input type="text" formControlName="pays" class="form-control" required>
+        </div>
+      </div>
+      <div class="d-grid gap-2 mt-3">
+        <button class="btn btn-primary" type="button" (click)="onAdressSubmit()">Ajouter</button>
+      </div>
+    </form>
+    <hr/>
+
   </div>
   <div class="d-grid gap-2">
     <button type="submit" class="btn btn-success">Submit</button>

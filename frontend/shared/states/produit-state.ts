@@ -1,4 +1,5 @@
-import { Action, createSelector, Selector, State, StateContext } from "@ngxs/store";
+import { Injectable } from "@angular/core";
+import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { AddProduct, RemoveProduct } from "../actions/produit.action";
 import { ProduitStateModel } from "./produit-state-model";
 
@@ -9,7 +10,7 @@ import { ProduitStateModel } from "./produit-state-model";
     }
 })
 
-
+@Injectable()
 export class PanierState {
     @Selector()
     static getProduit(state: ProduitStateModel){
@@ -19,17 +20,9 @@ export class PanierState {
     static countProducts(state: ProduitStateModel){
         return state.produits.length;
     }
-    @Selector()
-    static getOneProduct(index: number) {
-        return createSelector([PanierState], (state: ProduitStateModel) => {
-            console.log("ici")
-            console.log(state);
-            return state.produits[index]
-        }
-    )};
     
     @Action(AddProduct)
-    add(
+    AddProduct(
         {getState, patchState}:StateContext<ProduitStateModel>, 
         {payload}: AddProduct
     ){
@@ -41,7 +34,7 @@ export class PanierState {
     }
 
     @Action(RemoveProduct)
-    delete(
+    DeleteProduct(
         {getState, patchState}:StateContext<ProduitStateModel>,
         {payload}: RemoveProduct
     ){
@@ -51,4 +44,7 @@ export class PanierState {
         })
     }  
 
+
 }
+
+
