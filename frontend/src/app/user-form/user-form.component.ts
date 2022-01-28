@@ -41,7 +41,7 @@ export class UserFormComponent implements OnInit {
   @Select(AdresseState.getAdresses) getAdresses$ : Observable<Adresse[]>
 
 
-  constructor(private storeService : StoreService) { }
+  constructor(public storeService : StoreService) { }
 
   ngOnInit(): void {
   }
