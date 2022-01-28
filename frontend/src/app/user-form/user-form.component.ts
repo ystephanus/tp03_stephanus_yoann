@@ -26,7 +26,7 @@ export class UserFormComponent implements OnInit {
     password: new FormControl(''),
   });
   
-  adressForm = new FormGroup({
+  addressForm = new FormGroup({
     adresse: new FormControl(''),
     cp: new FormControl(''),
     ville:new FormControl(''),
@@ -34,8 +34,8 @@ export class UserFormComponent implements OnInit {
   });
 
   isValid:boolean=false;
-  adresses : Adresse[];
-  openAdress: boolean=false;
+  public adresses : Adresse[] = [];
+  openAddress: boolean=false;
   
   @Select(AdresseState.countAdress) countAdresses$ : Observable<number>
   @Select(AdresseState.getAdresses) getAdresses$ : Observable<Adresse[]>
@@ -54,17 +54,24 @@ export class UserFormComponent implements OnInit {
   }
 
   openAdresse(): void{
-    this.openAdress = true;
+    this.openAddress = true;
   }
 
   onAdressSubmit():void{
     var address : Adresse = {
-      cp:this.adressForm.get('cp').value, 
-      adresse : this.adressForm.get('adresse').value, 
-      ville : this.adressForm.get('ville').value, 
-      pays: this.adressForm.get('pays').value
+      cp:this.addressForm.get('cp').value, 
+      adresse : this.addressForm.get('adresse').value, 
+      ville : this.addressForm.get('ville').value, 
+      pays: this.addressForm.get('pays').value
     }
     this.storeService.addAdress(address)
-    this.openAdress = false;
+    this.adresses = [...this.adresses, address]
+    console.log(address)
+    this.openAddress = false;
+  }
+
+  deleteAddress(a : Adresse){
+    this.storeService.deleteAdresse(a)
+    this.adresses = this.adresses.filter(addr => addr != a)
   }
 }

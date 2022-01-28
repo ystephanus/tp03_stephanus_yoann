@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Adresse } from 'shared/models/Adresse';
 
 @Component({
   selector: 'app-user-recap',
@@ -10,7 +11,7 @@ export class UserRecapComponent implements OnInit {
   constructor() { }
   @Input() nom: string="";
   @Input() prenom: string ="";
-  @Input() adresse: string ="";
+  @Input() adresses: Adresse[];
   @Input() cp: string ="";
   @Input() ville:string="";
   @Input() pays:string="";

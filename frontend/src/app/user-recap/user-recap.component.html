@@ -3,10 +3,13 @@
     <li>Nom - {{nom}}</li>
     <li>Prenom - {{prenom}}</li>
     <li>Civilité - {{civilite}}</li>
-    <li>Adresse - {{adresse}}</li>
-    <li>Code postal - {{cp}}</li>
-    <li>Ville - {{ville}}</li>
-    <li>Pays - {{pays}}</li>
+    <li>Adresse
+        <ul>
+            <li *ngFor="let a of adresses">
+                {{a.adresse}} - {{a.ville}} - {{a.cp}} - {{a.pays}}
+            </li>
+        </ul>
+    </li>
     <li>Télephone - {{tel}} </li>
     <li>Mél -  {{mel}}</li>
     <li>Utilisateur - {{username}}</li>

@@ -41,12 +41,12 @@
     <ul>
       <li *ngFor="let a of getAdresses$ | async">
         {{a.adresse}} - {{a.ville}} - {{a.cp}} - {{a.pays}}
-        <button class="btn btn-danger" (click)="this.storeService.deleteAdresse(a)">Supprimer</button>
+        <button class="btn btn-danger" (click)="deleteAddress(a)">Supprimer</button>
       </li>
     </ul>
 
     <hr/>
-    <form [formGroup]="adressForm" class="me-4 ms-4" *ngIf="openAdress">
+    <form [formGroup]="addressForm" class="me-4 ms-4" *ngIf="openAddress">
       <div class="row">
         <div class="col">
           <label class="form-label">Adresse</label> 
@@ -81,7 +81,7 @@
     *ngIf="isValid == true" 
     [nom]="this.profileForm.get('nom')?.value"  
     [prenom]="this.profileForm.get('prenom')?.value"
-    [adresse]="this.profileForm.get('adresse')?.value"
+    [adresses]="this.adresses"
     [cp]="this.profileForm.get('cp')?.value"
     [ville]="this.profileForm.get('ville')?.value"
     [pays]="this.profileForm.get('pays')?.value"
