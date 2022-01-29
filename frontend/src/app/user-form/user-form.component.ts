@@ -67,6 +67,7 @@ export class UserFormComponent implements OnInit {
     this.storeService.addAdress(address)
     this.adresses = [...this.adresses, address]
     this.openAddress = false;
+    this.addressForm.reset()
   }
 
   deleteAddress(a : Adresse){
